@@ -1,0 +1,79 @@
+#Introduction
+
+This credit card fraud detection report discusses the approach, the best model,
+the difficulties, metrics chosen, starting with the dataset used. [IDE used was Spyder.]
+
+#Dataset Used
+
+The dataset used for the task was obtained from the following website:
+https://www.kaggle.com/kartik2112/fraud-detection
+
+The columns included in the dataset were:
+trans_date_trans_time,cc_num,merchant,category,amt,first,last,gender,street,city,state,
+zip,lat,long,city_pop,job,dob,trans_num,unix_time,merch_lat,merch_long,is_fraud
+Data Preprocessing
+
+
+Whitespaces, special character underscore (_), and semicolon were omitted.
+Some unnecessary columns were deleted such as ‘merchant’ as the merchant longitude
+and latitude is used instead. The deleted columns are: ‘merchant’, ‘first’, ‘last’, ‘city’,
+‘dob’, ‘trans_num’ [as it is generated after the transaction]
+
+The encoding done for the categorical variables is label encoding. With regards
+to the number of features, it is used and has generated numerical encoding for each
+unique categorical variable.
+
+Under-sampling and over-sampling techniques are used because of the
+imbalance data. The best model has over-sampling done.
+Libraries Used
+
+● Pandas (Normal pandas operations such as read_csv, replace)
+● Numpy (for array related operations)
+● Tensorflow (version 2.x)
+● Sci-Kit Learn (sklearn.preprocessing for encoding and scaling,
+sklearn.model_selection for dataset splitting, sklearn.metrics for accuracy)
+● Imblearn (under/oversampling)
+● H5py is installed to save the model
+
+#Approach
+
+Before any data imbalance handling, the count of fraud and not_fraud of split
+train data is 5982 and 1031358 which clearly indicates the data imbalance. After
+under-sampling it is 5982 and 5982. And After over-sampling, it is 1031358 and
+1031358. Which is our best model.
+
+Apart from the data imbalance handling, the model building, testing and
+calculating the accuracy is same in all three cases. Which is as follows.
+After under-sampling/over-sampling, the scaling of data is done for better
+performance. 
+
+Standard Scaling is done. Then using 6 units (hidden neurons) and
+rectified linear activation function or ReLU (to avoid vanishing gradient), the input and
+hidden layers are created. As we need if the transaction is fraud or not, in the final layer
+we have used single unit [binary dimension] and activation function is sigmoid for the
+same reason.
+
+With these parameters, the neural network is trained.: optimizer = 'adam', loss =
+'binary_crossentropy', metrics = ['accuracy','Precision','Recall']
+The network is trained on the training set using a batch of 32 size and in 10
+epochs. The model is then tested on the test dataset and is checked for the unseen
+data.
+
+The metrics used to evaluate the performance are 'accuracy','Precision', and
+'Recall'.
+
+
+#Results
+
+Model 1 (Nothing done for imbalanced data): loss: 0.0139 - accuracy: 0.9959 -
+precision: 0.7095 - recall: 0.4957
+Model 2 (Undersampling): loss: 0.3486 - accuracy: 0.8643 - precision: 0.9654 - recall:
+0.7556
+Model 3- Best Model (Oversampling): loss: 0.2310 - accuracy: 0.9111 - precision:
+0.9568 - recall: 0.8610
+It can be observed that the undersampling ignores some important features and thus
+have more loss than oversampling.
+
+#Conclusion
+The report discussed the approach, the best model, the difficulties, metrics chosen,
+starting with the dataset used
