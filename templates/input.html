@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block body %}
+<H1>
+    Credit Card Fraud Detection Using DNN
+</H1>
+
+
+
+<body>
+    
+
+<div class="container">
+        <h1></h1>
+        <form action="" method="POST">
+            <div class="form-group">
+                <input type="text" name="cc_num" class="form-control" placeholder="cc_num" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="Category" class="form-control" placeholder="Category" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="Amount" class="form-control" placeholder="Amount" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="Gender" class="form-control" placeholder="Gender" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="Street" class="form-control" placeholder="Street" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="State" class="form-control" placeholder="State" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="PIN" class="form-control" placeholder="PIN" required>
+            </div>
+             <div class="form-group">
+                <input type="text" name="lat" class="form-control" placeholder="lat" required>
+            </div>
+             <div class="form-group">
+                <input type="text" name="long" class="form-control" placeholder="long" required>
+            </div>
+             <div class="form-group">
+                <input type="text" name="CityPOP" class="form-control" placeholder="CityPOP" required>
+            </div>
+             <div class="form-group">
+                <input type="text" name="Job" class="form-control" placeholder="Job" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="unix" class="form-control" placeholder="unix" required>
+            </div>
+             <div class="form-group">
+                <input type="text" name="merchlat" class="form-control" placeholder="merchlat" required>
+            </div>
+             <div class="form-group">
+                <input type="text" name="merchlong" class="form-control" placeholder="merchlong" required>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+             
+        </form>
+         
+    </div>
+    {% for result in results %}
+    <H1>{{result}}</H1>
+    {% endfor %}
+</body>
+    {% endblock %}
